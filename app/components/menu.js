@@ -9,7 +9,7 @@ function RetrieveAllButton({onButtonClick}) {
     );
 }
 
-function RertieveByIdButton({onButtonClick}) {
+function RetrieveByIdButton({onButtonClick}) {
     return (
         <button type="submit" className="p-2 border rounded m-4"
             onClick={() => onButtonClick("Retrieve specifc button")}>
@@ -36,7 +36,7 @@ export function Menu() {
     return(
         <div className="flex flex-col items-center justify-center">
             <RetrieveAllButton onButtonClick={onButtonClick} />
-            <RertieveByIdButton onButtonClick={onButtonClick}/>
+            <RetrieveByIdButton onButtonClick={onButtonClick}/>
             <CreateTaskButton onButtonClick={onButtonClick}/>
         </div>
     );
