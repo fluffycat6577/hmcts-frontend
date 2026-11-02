@@ -1,18 +1,17 @@
 'use client'
 import { Task } from "./task";
 
-export function TaskList() {
-    
-    const task = {
-        "title": "test",
-        "description": "test",
-        "status": "In Progress",
-        "date": "2026-11-02"
-    }
+export function TaskList({tasks}) {
 
     return(
         <div className="flex flex-col items-center justify-center">
-            <Task task={task} />
+            <ul className="list-none">
+                {tasks.map(task => (
+                    <li key={task.id}>
+                        <Task task={task} />
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 }
