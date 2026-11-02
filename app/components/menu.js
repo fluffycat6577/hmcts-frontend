@@ -27,7 +27,7 @@ function CreateTaskButton({onButtonClick}) {
     );
 }
 
-export function Menu() {
+export function Menu({ onRefetch }) {
 
     const onButtonClick = (value) => {
         console.log(value);
@@ -35,7 +35,7 @@ export function Menu() {
 
     return(
         <div className="flex flex-col items-center justify-center">
-            <RetrieveAllButton onButtonClick={onButtonClick} />
+            <RetrieveAllButton onButtonClick={onRefetch} />
             <RetrieveByIdButton onButtonClick={onButtonClick}/>
             <CreateTaskButton onButtonClick={onButtonClick}/>
         </div>

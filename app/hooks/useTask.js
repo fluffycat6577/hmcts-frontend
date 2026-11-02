@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getTasks } from "../api/_internal/actions";
 
 export function useTask() {
     const [tasks, setTasks] = useState([]);
@@ -6,7 +7,20 @@ export function useTask() {
     const [refresh, setRefresh] = useState(0);
 
     useEffect(() => {
-        console.log("temp");
+
+        async function fetchTask() {
+            try {
+                setLoading(true);
+                const fetchedTasks = await getTasks();
+                setTasks(fetchedTasks);
+            } catch (error) {
+                console.error("Failed to fetch tasks: ", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchTask();
     }, [refresh]);
 
     const refetch = () => {

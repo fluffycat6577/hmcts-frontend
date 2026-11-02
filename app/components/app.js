@@ -1,22 +1,12 @@
+'use client';
+
 import { Menu } from "./menu";
-import { TaskList } from "./tasklist"
+import { TaskList } from "./tasklist";
+import { useTask } from "../hooks/useTask";
 
 export function TaskApp() {
     
-    const tasks = [{
-        "id": 1,
-        "title": "test",
-        "description": "test",
-        "status": "In Progress",
-        "date": "2026-11-02"
-    },
-    {
-        "id": 2,
-        "title": "test2",
-        "description": "test2",
-        "status": "completed",
-        "date": "2026-11-02"
-    }]
+    const { tasks, loading, refetch, updateNoRefetch, deleteFromState } = useTask();
 
     return (
         <div className="flex flex-row items-center justify-evenly min-h-screen h-full">
@@ -25,7 +15,7 @@ export function TaskApp() {
             <h1 className="font-bold underline text-4xl">HMCTS Test App</h1>
             </div>
             <div className="">
-            <Menu />
+            <Menu onRefetch={refetch}/>
             </div>
         </div>
         <div className="w-1/2">
