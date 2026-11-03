@@ -44,12 +44,7 @@ export async function createTask(task) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                "Title": task.title,
-                "Description": task.description,
-                "Status": task.status,
-                "DueDate": task.dueDate,
-            }),
+            body: task,
         }
     );
 
