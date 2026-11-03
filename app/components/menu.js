@@ -14,7 +14,7 @@ function RetrieveAllButton({onButtonClick}) {
 function RetrieveByIdButton({onButtonClick}) {
     return (
         <button type="submit" className="p-2 border rounded m-4"
-            onClick={() => onButtonClick("Retrieve specifc button")}>
+            onClick={() => onButtonClick.push("/task_view")}>
             Retrieve specific task
         </button>
     );
@@ -33,14 +33,10 @@ export function Menu({ onRefetch }) {
 
     const router = useRouter();
 
-    const onButtonClick = (value) => {
-        console.log(value);
-    };
-
     return(
         <div className="flex flex-col items-center justify-center">
             <RetrieveAllButton onButtonClick={onRefetch} />
-            <RetrieveByIdButton onButtonClick={onButtonClick}/>
+            <RetrieveByIdButton onButtonClick={router}/>
             <CreateTaskButton onButtonClick={router}/>
         </div>
     );
