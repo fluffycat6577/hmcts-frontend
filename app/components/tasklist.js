@@ -2,14 +2,14 @@
 
 import { Task } from "./task";
 
-export function TaskList({tasks}) {
+export function TaskList({tasks, refetch}) {
 
     return(
         <div className="flex flex-col items-center justify-center w-full">
             <ul className="list-none">
                 {tasks.map(task => (
                     <li key={task.id}>
-                        <Task task={task} />
+                        <Task task={task} refetch={refetch} />
                     </li>
                 ))}
             </ul>

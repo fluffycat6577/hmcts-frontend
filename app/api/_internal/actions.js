@@ -11,7 +11,7 @@ export async function getTasks() {
     );
 
     if (!response.ok) {
-        throw new error("Unable to fetch tasks.")
+        throw new error("Unable to fetch tasks.");
     }
 
     return response.json();
@@ -45,7 +45,7 @@ export async function createTask(task) {
                 "Content-Type": "application/json",
             },
             body: task,
-        }
+        },
     );
 
     if (!response.ok){
@@ -82,5 +82,18 @@ export async function updateTask(task) {
 }
 
 export async function deleteTask(id) {
-    
+    const url = process.env.API_URL_HTTP + process.env.ENDPOINT + `/${id}`;
+
+    const response = await fetch (
+        url,
+        {
+            method: "DELETE",
+        },
+    );
+
+    if (!response.ok){
+        throw new Error(`Unable to update task: ${response.status}`);
+    }
+
+    return response.status;
 }

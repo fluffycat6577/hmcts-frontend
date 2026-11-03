@@ -24,6 +24,7 @@ export function CreateTaskForm() {
 
         try {
             const result = await createTask(formData);
+            router.refresh();
             router.push("/");
         } catch (error) {
             console.error(error);
