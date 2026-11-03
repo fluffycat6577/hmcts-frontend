@@ -6,7 +6,7 @@ import { useTask } from "../hooks/useTask";
 
 export function TaskApp() {
     
-    const { tasks, loading, refetch, updateNoRefetch, deleteFromState } = useTask();
+    const { tasks, loading, refetch } = useTask();
 
     return (
         <div className="flex flex-row items-center justify-evenly min-h-screen h-full">
@@ -15,7 +15,7 @@ export function TaskApp() {
             <h1 className="font-bold underline text-4xl">HMCTS Test App</h1>
             </div>
             <div className="">
-            <Menu onRefetch={refetch}/>
+            <Menu onRefetch={refetch} />
             </div>
         </div>
         <div className="w-1/2">

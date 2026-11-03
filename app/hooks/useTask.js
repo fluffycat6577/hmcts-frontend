@@ -28,13 +28,5 @@ export function useTask() {
         console.log("Refreshing tasks...");
     }
 
-    const updateNoRefetch = (newTasks) => {
-        setTasks((prevTasks) => [...prevTasks, newTasks]);
-    }
-
-    const deleteTaskFromState = (taskId) => {
-        setTasks((prevTasks) => prevTasks.filter(task => task.id !== taskId));
-    }
-
-    return { tasks, loading, refetch, updateNoRefetch, deleteTaskFromState };
+    return { tasks, loading, refetch };
 }
