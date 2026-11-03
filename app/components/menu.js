@@ -3,7 +3,7 @@
 function RetrieveAllButton({onButtonClick}) {
     return (
         <button type="submit" className="p-2 border rounded m-4"
-            onClick={() => onButtonClick("Retrieve all button")}>
+            onClick={onButtonClick}>
             Retrieve all tasks
         </button>
     );

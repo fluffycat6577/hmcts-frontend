@@ -10,7 +10,7 @@ export function TaskApp() {
 
     return (
         <div className="flex flex-row items-center justify-evenly min-h-screen h-full">
-        <div className="flex flex-col items-center justify-center min-h-screen w-1/2 h-full">
+        <div className="flex flex-col items-center justify-center min-h-screen w-2/5 h-full">
             <div className="absolute top-20">
             <h1 className="font-bold underline text-4xl">HMCTS Test App</h1>
             </div>
@@ -18,7 +18,7 @@ export function TaskApp() {
             <Menu onRefetch={refetch} />
             </div>
         </div>
-        <div className="w-1/2">
+        <div className="w-3/5">
             <TaskList tasks={tasks} />
         </div>
         </div>
