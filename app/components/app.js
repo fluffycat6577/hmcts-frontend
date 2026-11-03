@@ -1,8 +1,6 @@
 'use client';
 
 import { Menu } from "./menu";
-import { TaskList } from "./tasklist";
-import { useTask } from "../hooks/useTask";
 
 export function TaskApp() {
 
