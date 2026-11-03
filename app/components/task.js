@@ -9,6 +9,10 @@ function UpdateStatusButton() {
     );
 }
 
+function DeleteTaskButton() {
+    
+}
+
 export function Task({task}) {
     return (
         <div className="static justify-start border m-4 p-2">
