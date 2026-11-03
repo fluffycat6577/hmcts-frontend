@@ -29,7 +29,7 @@ export async function getTaskById(id) {
 
     if (!response.ok) {
         throw new error(`Unable to fetch specified task with ID: ${id}`);
-    }
+    }    
 
     return response.json();
 }
