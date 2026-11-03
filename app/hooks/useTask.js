@@ -6,6 +6,10 @@ export function useTask() {
     const [loading, setLoading] = useState(false);
     const [refresh, setRefresh] = useState(0);
 
+    // We attatch a basic state variable to the useEffect as a dependency.
+    // This will allow us to do a background refresh of the data without
+    // needing to remount the component.
+
     useEffect(() => {
 
         async function fetchTask() {
