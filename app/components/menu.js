@@ -1,5 +1,7 @@
 'use client'
 
+import { useRouter } from "next/navigation";
+
 function RetrieveAllButton({onButtonClick}) {
     return (
         <button type="submit" className="p-2 border rounded m-4"
@@ -21,13 +23,15 @@ function RetrieveByIdButton({onButtonClick}) {
 function CreateTaskButton({onButtonClick}) {
     return(
         <button type="submit" className="p-2 border rounded m-4"
-            onClick={() => onButtonClick("Create button")}>
+            onClick={() => onButtonClick.push("/create_task")}>
             Create new task
         </button>
     );
 }
 
 export function Menu({ onRefetch }) {
+
+    const router = useRouter();
 
     const onButtonClick = (value) => {
         console.log(value);
@@ -37,7 +41,7 @@ export function Menu({ onRefetch }) {
         <div className="flex flex-col items-center justify-center">
             <RetrieveAllButton onButtonClick={onRefetch} />
             <RetrieveByIdButton onButtonClick={onButtonClick}/>
-            <CreateTaskButton onButtonClick={onButtonClick}/>
+            <CreateTaskButton onButtonClick={router}/>
         </div>
     );
 }
