@@ -2,7 +2,8 @@
 
 function UpdateStatusButton() {
     return (
-        <button type="submit" className="p-2 border mt-4">
+        <button type="submit" className="p-2 border mt-4"
+            onClick={() => console.log("It does nothing")}>
                 Update Status
             </button>
     );

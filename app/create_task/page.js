@@ -12,7 +12,7 @@ export default function Page() {
             <h1>Hello World!</h1>
             <CreateTaskForm />
             <button className="p-2 border rounded m-4" onClick={() => router.push("/")}>
-                Home
+                Go Back
             </button>
         </div>
     );
