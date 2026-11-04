@@ -1,6 +1,7 @@
 'use client'
 
 import { getTaskById } from '../api/_internal/actions';
+import { Task } from '../components/task';
 import { useState } from 'react';
 
 function TaskSelection({ setTask }) {
@@ -40,7 +41,7 @@ function TaskSelection({ setTask }) {
     );
 }
 
-function DisplayTask({ task }) {
+function DisplayTask({ task, onDelete }) {
 
     if (task === null) {
         return (
@@ -59,25 +60,21 @@ function DisplayTask({ task }) {
     }
 
     return (
-        <div className="border m-4 p-2">
-            <h1 className="border-b font-bold text-2xl">{task.title}</h1>
-            <h2 className="pt-2 underline">Description</h2>
-            <p className="pt-2">{task.description}</p>
-            <h2 className="pt-2 underline">Status</h2>
-            <p>{task.status}</p>
-            <h2 className="pt-2 underline">Due Date</h2>
-            <p>{task.dueDate}</p>
-        </div>
+        <Task task={task} refetch={onDelete} />
     );
 }
 
 export function TaskView() {
     const [task, setTask] = useState(null);
 
+    const onDelete = () => {
+        setTask(null);
+    }
+
     return (
         <div className="relative flex flex-col">
             <TaskSelection setTask={setTask} />
-            <DisplayTask task={task} />
+            <DisplayTask task={task} onDelete={onDelete} />
         </div>
     );
 
