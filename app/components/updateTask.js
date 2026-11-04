@@ -64,9 +64,7 @@ function EditForm({task}) {
         );
 
         try {
-            console.log(updatedTask);
             const response = await updateTask(originalTask.id, JSON.stringify(updatedTask));
-            console.log(response);
             router.push("/");
         } catch (error) {
             console.error(error);
