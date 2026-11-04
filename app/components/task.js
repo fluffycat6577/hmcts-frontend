@@ -40,6 +40,9 @@ function DeleteTaskButton({taskId, refetch}) {
 }
 
 export function Task({task, refetch}) {
+
+    const [date, time] = task.dueDate.split("T");
+
     return (
         <div className="justify-start border m-4 p-2 w-full">
             <h1 className="border-b font-bold text-2xl">{task.title}</h1>
@@ -52,7 +55,7 @@ export function Task({task, refetch}) {
             <h2 className="pt-2 underline">Status:</h2>
             <p>{task.status}</p>
             <h2 className="pt-2 underline">Due Date:</h2>
-            <p>{task.dueDate}</p>
+            <p>Due at {time} on {date}</p>
             <div className="flex flex-row justify-left items-left">
                 <UpdateStatusButton />
                 <DeleteTaskButton taskId={task.id} refetch={refetch} />
