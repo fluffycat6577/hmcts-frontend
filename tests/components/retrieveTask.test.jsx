@@ -3,7 +3,6 @@ import { describe, it, expect, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 import { TaskView } from "@/app/components/retrieveTask";
 import { getTaskById } from "@/app/api/_internal/actions";
-import { Task } from "@/app/components/task";
 
 vi.mock("@/app/api/_internal/actions", () => ({
     getTaskById: vi.fn()

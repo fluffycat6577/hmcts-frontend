@@ -32,7 +32,6 @@ describe("Task", () => {
             await screen.findByText("Test task")
         ).toBeInTheDocument();
 
-        screen.find
         expect(
             await screen.findByText("Test description")
         ).toBeInTheDocument();
