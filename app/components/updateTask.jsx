@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getModifiedFields } from "../utils/getModifiedFields";
 
-function EditForm({task}) {
+export function EditForm({task}) {
     //This function is too long, should ideally refactor
 
     const [originalTask, setOriginalTask] = useState(null);
