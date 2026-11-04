@@ -13,7 +13,7 @@ export default function Page() {
                 <h1 className="font-bold underline text-4xl">Current Tasks</h1>
                 <div className="relative flex flex-row">
                     <NavigationButton label="Go Back" route="/" />
-                    <button type="submit" className="border rounded p-2 m-4" onClick={refetch}>Update List</button>
+                    <button type="submit" className="border rounded p-2 m-4 hover:bg-gray-300" onClick={refetch}>Update List</button>
                 </div>
             </div>
             <TaskList tasks={tasks} refetch={refetch} />

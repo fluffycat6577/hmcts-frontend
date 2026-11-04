@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 function UpdateStatusButton() {
     return (
-        <button type="submit" className="p-2 border ml-2 m-4"
+        <button type="submit" className="p-2 border ml-2 m-4 hover:bg-gray-300"
             onClick={() => console.log("It does nothing")}>
                 Update Status
             </button>
@@ -15,7 +15,7 @@ function UpdateStatusButton() {
 function DeleteTaskButton({taskId, refetch}) {
     
     const router = useRouter();
-    
+
     async function handleDelete() {
         try {
             const confirmed = window.confirm(

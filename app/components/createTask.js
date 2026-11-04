@@ -9,7 +9,7 @@ export function CreateTaskForm() {
     const router = useRouter();
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [selectedStatus, setSelectedStatus] = useState("");
+    const [selectedStatus, setSelectedStatus] = useState("Pending");
     const [dateTime, setDateTime] = useState("");
 
     async function handleSubmit(event) {
@@ -24,8 +24,13 @@ export function CreateTaskForm() {
 
         try {
             const result = await createTask(formData);
-            router.refresh();
+
+            setTitle("");
+            setDescription("");
+            setSelectedStatus("Pending");
+            setDateTime("");
             router.push("/");
+
         } catch (error) {
             console.error(error);
         }
@@ -78,7 +83,7 @@ export function CreateTaskForm() {
                 required
                 className="border rounded p-1 mb-4" />
             
-            <button type="submit" className="border rounded p-2">Submit</button>
+            <button type="submit" className="border rounded p-2 hover:bg-gray-300">Submit</button>
 
         </form>
     );
