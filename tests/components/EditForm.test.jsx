@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
+import userEvent from "@testing-library/user-event";
 import { EditForm } from "@/app/components/updateTask";
 
 vi.mock("next/navigation", () => ({
@@ -36,6 +37,18 @@ describe("EditForm", () => {
         expect(
             screen.getByRole("combobox")
         ).toHaveValue("InProgress");
+
+    });
+
+    it("allows the user to change the task status", async () => {
+
+        const user = userEvent.setup();
+
+        render(<EditForm task={task} />);
+
+        const statusDropdown = screen.getByRole("combobox");
+        await user.selectOptions(statusDropdown, "Completed");
+        expect(statusDropdown).toHaveValue("Completed");
 
     });
 
