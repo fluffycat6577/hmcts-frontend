@@ -1,7 +1,7 @@
 'use client'
 
 import { getTaskById } from '../api/_internal/actions';
-import { Task } from '../components/task';
+import { Task } from './task';
 import { useState } from 'react';
 
 function TaskSelection({ setTask }) {
