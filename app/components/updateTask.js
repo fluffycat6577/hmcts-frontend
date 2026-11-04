@@ -7,6 +7,9 @@ import { useEffect, useState } from "react";
 function getModifiedFields(original, updated) {
     const changed = {};
 
+    // Omit keys that are not changed rather than setting to null
+    // In case we want to use null to represent an empty DB field
+    // (In theory this can only happen with the "description" field)
     for (const key in updated) {
         if (original[key] !== updated[key]) {
             changed[key] = updated[key];
@@ -17,6 +20,8 @@ function getModifiedFields(original, updated) {
 }
 
 function EditForm({task}) {
+    //This function is too long, should ideally refactor
+
     const [originalTask, setOriginalTask] = useState(null);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -48,6 +53,8 @@ function EditForm({task}) {
             return;
         }
 
+        // Only send fields that have actually been changed
+        // Smaller request body = more efficient
         const updatedTask = getModifiedFields(
             {
                 title: originalTask.title,
@@ -150,6 +157,8 @@ export function UpdateTask() {
         );
     }
 
+    // Guard against trying to load the element with an undefined task
+    // (Could occur on initial mounting before useEffect has a chance to run)
     return (
         task && <EditForm task={task} />
     );

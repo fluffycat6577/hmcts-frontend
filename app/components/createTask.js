@@ -25,6 +25,8 @@ export function CreateTaskForm() {
         try {
             const result = await createTask(formData);
 
+            // Reset the state of all the fields so they aren't populated
+            // when create_task is accessed again
             setTitle("");
             setDescription("");
             setSelectedStatus("Pending");

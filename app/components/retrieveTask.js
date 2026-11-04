@@ -67,6 +67,8 @@ function DisplayTask({ task, onDelete }) {
 export function TaskView() {
     const [task, setTask] = useState(null);
 
+    // Task is deleted from server, and local state is updated on next fetch
+    // So we just reset the state on this page to remove the current task
     const onDelete = () => {
         setTask(null);
     }
