@@ -3,18 +3,16 @@
 import { deleteTask } from "../api/_internal/actions";
 import { useRouter } from "next/navigation";
 
-function UpdateStatusButton() {
+function UpdateTaskButton({taskId, router}) {
     return (
         <button type="submit" className="p-2 border ml-2 m-4 hover:bg-gray-300"
-            onClick={() => console.log("It does nothing")}>
-                Update Status
+            onClick={() => router.push(`/edit/${taskId}`)}>
+                Update Task
             </button>
     );
 }
 
-function DeleteTaskButton({taskId, refetch}) {
-    
-    const router = useRouter();
+function DeleteTaskButton({taskId, refetch, router}) {
 
     async function handleDelete() {
         try {
@@ -42,6 +40,7 @@ function DeleteTaskButton({taskId, refetch}) {
 export function Task({task, refetch}) {
 
     const [date, time] = task.dueDate.split("T");
+    const router = useRouter();
 
     return (
         <div className="justify-start border m-4 p-2 w-full">
@@ -57,8 +56,8 @@ export function Task({task, refetch}) {
             <h2 className="pt-2 underline">Due Date:</h2>
             <p>Due at {time} on {date}</p>
             <div className="flex flex-row justify-left items-left">
-                <UpdateStatusButton />
-                <DeleteTaskButton taskId={task.id} refetch={refetch} />
+                <UpdateTaskButton taskId={task.id} router={router} />
+                <DeleteTaskButton taskId={task.id} refetch={refetch} router={router} />
             </div>
         </div>
     );

@@ -78,7 +78,8 @@ export function CreateTaskForm() {
             <h1 className="text-2xl underline">Due Date</h1>
             <input
                 type="datetime-local"
-                id="dueDate" value={dateTime}
+                id="dueDate"
+                value={dateTime}
                 onChange={(event) => setDateTime(event.target.value)}
                 required
                 className="border rounded p-1 mb-4" />

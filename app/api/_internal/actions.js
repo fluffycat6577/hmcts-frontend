@@ -55,8 +55,8 @@ export async function createTask(task) {
     return response.json();
 }
 
-export async function updateTask(task) {
-    const url = process.env.API_URL_HTTP + process.env.ENDPOINT + `/${task.id}`;
+export async function updateTask(id, task) {
+    const url = process.env.API_URL_HTTP + process.env.ENDPOINT + `/${id}`;
 
     const response = await fetch (
         url,
@@ -65,12 +65,7 @@ export async function updateTask(task) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                "Title": task.title,
-                "Description": task.description,
-                "Status": task.status,
-                "DueDate": task.dueDate,
-            }),
+            body: task,
         }
     );
 
