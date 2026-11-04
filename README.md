@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DTS Developer Technical Test
+## Introduction
+This repository contains this candidates implementation of the frontend for the DTS Developer Technical Test.
 
-## Getting Started
+## Technical Notes
+### Implementation
+The frontend application is implemented using NextJS, a library that provides built-in routing and page handling, built upon NodeJS. Styling is handled with TailwindCSS, and functionality is implemented using React.
 
-First, run the development server:
+### Connecting to the Server
+For the purpose of this demonstration, the environment file ".env.local" is provided, which stores variables that point to the address of the backend server. You may need to alter the port number of "API_URL_HTTP" if the backend application starts from a different port. Please note that neither the frontend or backend are currently configured to communicate over a HTTPS connection. However, for demonstration and testing purposes, this was deemed acceptable.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Running the Application
+After downloading/cloning the repository, navigate to the project directory via a terminal and enter the command:
+
+```Bash
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+or
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```Bash
+npm ci
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This will install the required dependencies for the project and allow you to run it. Once this process has finished, use the following command to launch the application:
 
-## Learn More
+```Bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+If it does not open automatically, launch your browser and connect to the localhost via the port configured by npm (usually this will be port 3000).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Important Notes
+Please note that for the frontend application to function, the backend server MUST be running at the same time. The frontend will have no data to display if it cannot connect to the backend server resulting in only the static menu items being rendered.
