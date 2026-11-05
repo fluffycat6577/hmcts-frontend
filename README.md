@@ -11,6 +11,15 @@ Unit Testing is implemented using [Vitest](https://vitest.dev/guide/), a testing
 ### Connecting to the Server
 For the purpose of this demonstration, the environment file ".env.local" is provided, which stores variables that point to the address of the backend server. You may need to alter the port number of "API_URL_HTTP" if the backend application starts from a different port. Please note that neither the frontend or backend are currently configured to communicate over a HTTPS connection. However, for demonstration and testing purposes, this was deemed acceptable.
 
+For example, the .env.local file should look something like this:
+```
+API_URL_HTTPS="https://localhost:7290"
+API_URL_HTTP="http://localhost:5191"
+ENDPOINT="/task"
+```
+
+If you need to change the server address, modify the "API_URL_HTTP" line. Do NOT rename any of the variables. Doing so will result in the program not working as intended.
+
 ### Running the Application
 After downloading/cloning the repository, navigate to the project directory via a terminal and enter the command:
 
